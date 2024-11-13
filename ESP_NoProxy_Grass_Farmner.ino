@@ -6,19 +6,19 @@
 
 
 // Налаштування Wi-Fi
-const char* ssid = "GrafWiFi";
-const char* password = "G03G07m06";
+const char* ssid = "";
+const char* password = "";
 
 
 // Налаштування WebSocket
 const char* websocket_server ="proxy.wynd.network";
 const uint16_t websocket_port = 4650;
-const char* websocket_path = "/"; //ws://192.168.1.105:25545
+const char* websocket_path = "/";
 WebSocketsClient webSocket;
 
 
 // Унікальні ID користувача та пристрою
-String user_id = "2ocP7c2meIDATQ28vFgk3IaXZjW";
+String user_id = "";
 String device_id = String(ESP.getChipId(), HEX);
 
 bool isConnected = false;
