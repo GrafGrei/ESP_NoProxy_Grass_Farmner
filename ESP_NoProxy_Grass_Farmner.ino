@@ -23,10 +23,9 @@ String device_id = String(ESP.getChipId(), HEX);
 
 bool isConnected = false;
 
-long int ping_int = 20000;
+long int ping_int = 5000;
 long int last_ping;
-long int recon_int = 20000;
-long int last_recon;
+
 
 void ConectedWebSoCket() {
   yield();
@@ -105,8 +104,8 @@ void sendAuth(String id) {
     result["user_id"] = user_id;
     result["user_agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36";
     result["timestamp"] = time(nullptr);
-    result["device_type"] = "extension";
-    result["version"] = "2.5.0";
+    result["device_type"] = "desktop";
+    result["version"] = "4.28.2";
 
     String jsonStr;
     serializeJson(doc, jsonStr);
