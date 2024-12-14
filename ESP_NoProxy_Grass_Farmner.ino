@@ -24,7 +24,7 @@ WebSocketsClient webSocket;
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
-String user_id = "2ocP7c2meIDATQ28vFgk3IaXZjW";
+String user_id = "";
 String device_id ="";
 
 bool isConnected = false;
