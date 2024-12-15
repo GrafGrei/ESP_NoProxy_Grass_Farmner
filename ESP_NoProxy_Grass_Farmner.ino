@@ -29,7 +29,7 @@ String device_id ="";
 
 bool isConnected = false;
 
-long int ping_int = 120000;
+long int ping_int = 60000;
 long int last_ping;
 
 
@@ -140,6 +140,7 @@ void ConectedWebSoCket() {
   webSocket.beginSSL(websocket_server, websocket_port, websocket_path, NULL, "");
   webSocket.onEvent(webSocketEvent);
   webSocket.setReconnectInterval(5000);
+  webSocket.enableHeartbeat(60000, 60000, 3);
   yield();
   blink(200, 750);
   blink(200, 750);
@@ -179,6 +180,7 @@ void webSocketEvent(WStype_t type, uint8_t* payload, size_t length) {
             break;
 
         default:
+            Serial.println(type);
             break;
     }
     blink(200, 200);
@@ -264,5 +266,12 @@ void loop() {
   } else {
     yield();
     webSocket.loop();
+    // if (millis() - last_ping > ping_int && isConnected) {
+    //   blink(200, 200);
+    //   sendPing();
+    //   last_ping = millis();
+    //   yield();
+    //   blink(200, 200);
+    // }
     }
 }
